@@ -9,7 +9,7 @@
                 {
                     'item_id': '{/literal}{$Artikel->cArtNr}{literal}',
                     'item_name': '{/literal}{$Artikel->cName}{literal}',
-                    'affiliation': '{/literal}{if isset($smarty.cookies.partner)}{$smarty.cookies.partner|escape}{else}kein_Partner{/if}{literal}',
+                    'affiliation': '{/literal}affili{literal}',
                     'currency': '{/literal}EUR{literal}',{/literal}
 
 {* START Discount *}
