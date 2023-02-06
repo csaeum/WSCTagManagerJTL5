@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jtlshopplugin>
+	<Name>WSC TagManager JTL5</Name>
+	<Description>TagManager für JTL Shop 5</Description>
+	<Author>Web-SEO-Consulting</Author>
+	<URL>https://github.com/csaeum</URL>
+	<PluginID>WSCTagManagerJTL5</PluginID>
+	<XMLVersion>100</XMLVersion>
+	<ShopVersion>5.0.0</ShopVersion>
+	<Icon>nicson-logo.png</Icon>
+	<Version>0.8.0</Version>
+  	<LicenceClass>WSCTagManagerJTL5_Licence</LicenceClass>
+    <LicenceClassFile>WSCTagManagerJTL5_Licence.php</LicenceClassFile>
+	<CreateDate>2022-05-25</CreateDate>
+
+	<Install>
+
+		<ServicesRequiringConsent>
+
+			<Vendor>
+				<ID>wsc_Cookie_Bing</ID>
+				<Company>Microsoft Corporation Advertising</Company>
+				<Localization iso="ENG">
+					<Name>Bing Services</Name>
+					<Description>Verwendet von Bing</Description>
+					<Purpose>Verwendet von Bing, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Bing Services</Name>
+					<Description>Verwendet von Bing</Description>
+					<Purpose>Verwendet von Bing, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Bing Services</Name>
+					<Description>Verwendet von Bing</Description>
+					<Purpose>Verwendet von Bing, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Bing Services</Name>
+					<Description>Verwendet von Bing</Description>
+					<Purpose>Verwendet von Bing, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Clarity</ID>
+				<Company>Microsoft Corporation Clarity</Company>
+				<Localization iso="ENG">
+					<Name>Clarity Services</Name>
+					<Description>Verwendet von Clarity</Description>
+					<Purpose>Verwendet von Clarity, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Clarity Services</Name>
+					<Description>Verwendet von Clarity</Description>
+					<Purpose>Verwendet von Clarity, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Clarity Services</Name>
+					<Description>Verwendet von Clarity</Description>
+					<Purpose>Verwendet von Clarity, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Clarity Services</Name>
+					<Description>Verwendet von Clarity</Description>
+					<Purpose>Verwendet von Clarity, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Facebook</ID>
+				<Company>Meta Platforms Ireland Limited</Company>
+				<Localization iso="ENG">
+					<Name>Facebook Services</Name>
+					<Description>Verwendet von Facebook</Description>
+					<Purpose>Verwendet von Facebook, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Facebook Services</Name>
+					<Description>Verwendet von Facebook</Description>
+					<Purpose>Verwendet von Facebook, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Facebook Dienste</Name>
+					<Description>Verwendet von Facebook</Description>
+					<Purpose>Verwendet von Facebook, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Facebook Services</Name><Description>Verwendet von Facebook</Description><Purpose>Verwendet von Facebook, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Google</ID>
+				<Company>Google Ireland Limited</Company>
+				<Localization iso="ENG">
+				<Name>Google Services</Name>
+				<Description>Verwendet von Google Analytics / Google Tag Manager</Description>
+				<Purpose>Verwendet von Google Analytics / Google Tag Manager, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+				<Name>Google Services</Name>
+				<Description>Verwendet von Google Analytics / Google Tag Manager</Description>
+				<Purpose>Verwendet von Google Analytics / Google Tag Manager, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+				<Name>Google Dienste</Name>
+				<Description>Verwendet von Google Analytics / Google Tag Manager</Description>
+				<Purpose>Verwendet von Google Analytics / Google Tag Manager, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+				<Name>Google Services</Name>
+				<Description>Verwendet von Google Analytics / Google Tag Manager</Description>
+				<Purpose>Verwendet von Google Analytics / Google Tag Manager, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_GoogleADs</ID>
+				<Company>Google Ireland Limited</Company>
+				<Localization iso="ENG">
+					<Name>Google Adwords</Name>
+					<Description>Verwendet von Google Adwords</Description>
+					<Purpose>Verwendet von Google Adwords, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Google Adwords</Name>
+					<Description>Verwendet von Google Adwords</Description>
+					<Purpose>Verwendet von Google Adwords, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Google Adwords</Name>
+					<Description>Verwendet von Google Adwords</Description>
+					<Purpose>Verwendet von Google Adwords, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Google Adwords</Name>
+					<Description>Verwendet von Google Adwords</Description>
+					<Purpose>Verwendet von Google Adwords, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Hotjar</ID>
+				<Company>Hotjar Limited</Company>
+				<Localization iso="ENG">
+					<Name>Hotjar Limited</Name>
+					<Description>Verwendet von Hotjar Limited</Description>
+					<Purpose>Verwendet von Hotjar Limited, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Hotjar Limited</Name>
+					<Description>Verwendet von Hotjar Limited</Description>
+					<Purpose>Verwendet von Hotjar Limited, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Hotjar Limited</Name>
+					<Description>Verwendet von Hotjar Limited</Description>
+					<Purpose>Verwendet von Hotjar Limited, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Hotjar Limited</Name>
+					<Description>Verwendet von Hotjar Limited</Description>
+					<Purpose>Verwendet von Hotjar Limited, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Instagram</ID>
+				<Company>Meta Platforms Ireland Limited</Company>
+				<Localization iso="ENG">
+					<Name>Instagram</Name>
+					<Description>Verwendet von Instagram</Description>
+					<Purpose>Verwendet von Instagram, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Instagram</Name>
+					<Description>Verwendet von Instagram</Description>
+					<Purpose>Verwendet von Instagram, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Instagram</Name>
+					<Description>Verwendet von Instagram</Description>
+					<Purpose>Verwendet von Instagram, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Instagram</Name>
+					<Description>Verwendet von Instagram</Description>
+					<Purpose>Verwendet von Instagram, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Matomo</ID>
+				<Company>Beispiel GmbH</Company>
+				<Localization iso="ENG">
+					<Name>Matomo Services</Name>
+					<Description>Verwendet von Matomo Analytics / Tag Manager</Description>
+					<Purpose>Verwendet von Matomo Analytics / Tag Manager, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Matomo Dienste</Name>
+					<Description>Verwendet von Matomo Analytics / Tag Manager</Description>
+					<Purpose>Verwendet von Matomo Analytics / Tag Manager, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Matomo Dienste</Name>
+					<Description>Verwendet von Matomo Analytics / Tag Manager</Description>
+					<Purpose>Verwendet von Matomo Analytics / Tag Manager, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Matomo Services</Name>
+					<Description>Verwendet von Matomo Analytics / Tag Manager</Description>
+					<Purpose>Verwendet von Matomo Analytics / Tag Manager, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Mautic</ID>
+				<Company>Beispiel GmbH</Company>
+				<Localization iso="ENG">
+				<Name>Mautic Services</Name>
+				<Description>Verwendet von Mautic</Description>
+				<Purpose>Verwendet von Mautic, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+				<Name>Mautic Dienste</Name>
+				<Description>Verwendet von Mautic</Description>
+				<Purpose>Verwendet von Mautic, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+				<Name>Mautic Dienste</Name>
+				<Description>Verwendet von Mautic</Description>
+				<Purpose>Verwendet von Mautic, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+				<Name>Mautic Services</Name>
+				<Description>Verwendet von Mautic</Description>
+				<Purpose>Verwendet von Mautic, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Pinterest</ID>
+				<Company>Pinterest Inc.</Company>
+				<Localization iso="ENG">
+					<Name>Pinterest</Name>
+					<Description>Verwendet von Pinterest</Description>
+					<Purpose>Verwendet von Pinterest, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Pinterest</Name>
+					<Description>Verwendet von Pinterest</Description>
+					<Purpose>Verwendet von Pinterest, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Pinterest</Name>
+					<Description>Verwendet von Pinterest</Description>
+					<Purpose>Verwendet von Pinterest, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Pinterest</Name>
+					<Description>Verwendet von Pinterest</Description>
+					<Purpose>Verwendet von Pinterest, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Youtube</ID>
+				<Company>Google Ireland Limited</Company>
+				<Localization iso="ENG">
+					<Name>Youtube</Name>
+					<Description>Verwendet von Youtube</Description>
+					<Purpose>Verwendet von Youtube, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+					<Name>Youtube</Name>
+					<Description>Verwendet von Youtube</Description>
+					<Purpose>Verwendet von Youtube, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+					<Name>Youtube</Name>
+					<Description>Verwendet von Youtube</Description>
+					<Purpose>Verwendet von Youtube, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+					<Name>Youtube</Name>
+					<Description>Verwendet von Youtube</Description>
+					<Purpose>Verwendet von Youtube, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+					<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+
+			<Vendor>
+				<ID>wsc_Cookie_Zammad</ID>
+				<Company>Beispiel GmbH</Company>
+				<Localization iso="ENG">
+				<Name>Zammad Services</Name>
+				<Description>Verwendet von Zammad</Description>
+				<Purpose>Verwendet von Zammad, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="FRE">
+				<Name>Zammad Dienste</Name>
+				<Description>Verwendet von Zammad</Description>
+				<Purpose>Verwendet von Zammad, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="GER">
+				<Name>Zammad Dienste</Name>
+				<Description>Verwendet von Zammad</Description>
+				<Purpose>Verwendet von Zammad, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+				<Localization iso="ITA">
+				<Name>Zammad Services</Name>
+				<Description>Verwendet von Zammad</Description>
+				<Purpose>Verwendet von Zammad, um die Handlungen des Benutzers auf der Webseite zu analysieren, mit dem Zweck der Messung der Wirksamkeit einer Werbung sowie Verbesserung der Webseite (usability).</Purpose>
+				<PrivacyPolicy>/Datenschutz</PrivacyPolicy>
+				</Localization>
+			</Vendor>
+		</ServicesRequiringConsent>
+
+		<Adminmenu>
+
+			<Customlink sort="1">
+				<Name>Allgemeine Hinweise</Name>
+				<Filename>hinweise.php</Filename>
+			</Customlink>
+
+			<Settingslink sort="2">
+				<Name>Matomo</Name>
+				<Setting type="checkbox" sort="1" initialValue="N" conf="Y">
+					<Name>Matomo Allgemein aktivieren</Name>
+					<Description>Soll Matomo generell geladen werden. So kann man es auch mal abschalten ohne die Einstellungen zu verlieren.</Description>
+					<ValueName>wscTagManagerMatomo</ValueName>
+				</Setting>
+				<Setting type="text" sort="2" initialValue="https://mein.Matomo.de" conf="Y">
+					<Name>Matomo URL (ohne den abschließenden '/')</Name>
+					<Description>Ihre URL zu Matomo ohne den abschließenden '/'</Description>
+					<ValueName>wscTagManagerMatomoURL</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="3" initialValue="N" conf="Y">
+					<Name>Matomo TagManager aktivieren</Name>
+					<Description>Soll der Tag Manager generell geladen werden. So kann man es auch mal abschalten ohne die Einstellungen zu verlieren.</Description>
+					<ValueName>wscTagManagerMatomoTM</ValueName>
+				</Setting>
+				<Setting type="text" sort="4" initialValue="XxxXXxxX" conf="Y">
+					<Name>Matomo Container ID</Name>
+					<Description>Zu finden im Matomo beim einrichten ihres TagManagers</Description>
+					<ValueName>wscTagManagerMatomoTMID</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="5" initialValue="N" conf="Y">
+					<Name>Matomo Seiten ID aktivieren</Name>
+					<Description>Soll das Matomo Script für einfaches Tracking generell geladen werden. So kann man es auch mal abschalten ohne die Einstellungen zu verlieren.</Description>
+					<ValueName>wscTagManagerMatomoPage</ValueName>
+				</Setting>
+				<Setting type="text" sort="6" initialValue="X" conf="Y">
+					<Name>Matomo Seiten ID</Name>
+					<Description>Zu finden im Matomo beim einrichten ihrer Seite</Description>
+					<ValueName>wscTagManagerMatomoPageID</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="7" initialValue="N" conf="Y">
+					<Name>Alle Subdomains mit tracken</Name>
+					<Description>Hierdurch werden Besucher, die x.ihreDomain.de und y.ihreDomain.de besuchen als eindeutige Besucher gewertet.</Description>
+					<ValueName>wscTagManagerMatomoPageIDSubdomains</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="8" initialValue="N" conf="Y">
+					<Name>Alle Tracking Cookies deaktivieren</Name>
+					<Description>Hierdurch werden Tracking-Anfragen nicht gesendet, falls der Benutzer nicht getrackt werden möchte. Hinweis: Diese Einstellung hat keine Auswirkung, da die Do-Not-Track Unterstützung serverseitig aktiviert ist.</Description>
+					<ValueName>wscTagManagerMatomoPageIDnoCookies</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="9" initialValue="N" conf="Y">
+					<Name>Tracking-Anfragen nicht senden</Name>
+					<Description>Deaktiviert alle First-Party Cookies. Bestehende Matomo Cookies für diese Webseite werden beim nächsten Seitenaufruf gelöscht.</Description>
+					<ValueName>wscTagManagerMatomoPageIDnoTracking</ValueName>
+				</Setting>
+			</Settingslink>
+
+			<Settingslink sort="3">
+				<Name>Google</Name>
+				<Setting type="checkbox" sort="1" initialValue="N" conf="Y">
+					<Name>Google Allgemein aktivieren</Name>
+					<Description>Soll Google generell geladen werden. So kann man es auch mal abschalten ohne die Einstellungen zu verlieren.</Description>
+					<ValueName>wscTagManagerGoogle</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="2" initialValue="N" conf="Y">
+					<Name>Google TagManager aktivieren</Name>
+					<Description>Soll der Tag Manager generell geladen werden. So kann man es auch mal abschalten ohne die Einstellungen zu verlieren.</Description>
+					<ValueName>wscTagManagerGoogleTM</ValueName>
+				</Setting>
+				<Setting type="text" sort="3" initialValue="GTM-xxxxxxx" conf="Y">
+					<Name>Tag Manager GTM</Name>
+					<Description>Zu finden unter tagmanager.google.com</Description>
+					<ValueName>wscTagManagerGoogleTagID</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="4" initialValue="N" conf="Y">
+					<Name>Google Analytics 4 aktivieren</Name>
+					<Description>Soll Google Analytics 4 generell geladen werden. So kann man es auch mal abschalten ohne die Einstellungen zu verlieren.</Description>
+					<ValueName>wscTagManagerGoogleA4</ValueName>
+				</Setting>
+				<Setting type="text" sort="5" initialValue="G-xxxxxxxxxx" conf="Y">
+					<Name>Google Analytics 4 (neu ab 14. Oktober 2020)</Name>
+					<Description>Zu finden unter analytics.google.com, nutzt "gtag"</Description>
+					<ValueName>wscTagManagerGoogleA4ID</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="6" initialValue="N" conf="Y">
+					<Name>Google Analytics Universal Analytics aktivieren</Name>
+					<Description>Soll Google Analytics Universal Analytics generell geladen werden. So kann man es auch mal abschalten ohne die Einstellungen zu verlieren.</Description>
+					<ValueName>wscTagManagerGoogleUA</ValueName>
+				</Setting>
+				<Setting type="text" sort="7" initialValue="UA-xxxxxxxx-x" conf="Y">
+					<Name>Google Analytics Universal Analytics (alt bis 14. Oktober 2020)</Name>
+					<Description>Zu finden unter analytics.google.com, nutzt "gtag"</Description>
+					<ValueName>wscTagManagerGoogleUAID</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="8" initialValue="Y" conf="Y">
+					<Name>Google Analytics IP Anonymisierung</Name>
+					<Description>(Empfohlen!) Aktivieren um die IP Adresse des Besuchers zu verschleiern.</Description>
+					<ValueName>wscTagManagerGoogleAnonymizeIP</ValueName>
+				</Setting>
+			</Settingslink>
+
+			<Settingslink sort="4">
+				<Name>DataLayer</Name>
+				<Setting type="checkbox" sort="1" initialValue="N" conf="Y">
+					<Name>DataLayer Allgemein aktivieren</Name>
+					<Description>Einschalten des DataLayers global.</Description>
+					<ValueName>wscTagManagerDataLayer</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="2" initialValue="N" conf="Y">
+					<Name>DataLayer für Matomo aktivieren</Name>
+					<Description>Einschalten des DataLayers für Matomo.</Description>
+					<ValueName>wscTagManagerDataLayerMatomo</ValueName>
+				</Setting>
+				<Setting type="checkbox" sort="3" initialValue="N" conf="Y">
+					<Name>DataLayer für Google aktivieren</Name>
+					<Description>Einschalten des DataLayers für Google.</Description>
+					<ValueName>wscTagManagerDataLayerGoogle</ValueName>
+				</Setting>
+			</Settingslink>
+
+			<Customlink sort="5">
+				<Name>Cookies</Name>
+				<Filename>cookies.php</Filename>
+			</Customlink>
+
+		</Adminmenu>
+
+	</Install>
+</jtlshopplugin>
