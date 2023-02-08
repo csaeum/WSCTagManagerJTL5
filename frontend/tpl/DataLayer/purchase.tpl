@@ -1,59 +1,104 @@
 {* Purchase - Abschluss Seite START *}
-{literal}
+    {literal}
     'event': 'purchase',
     'ecommerce': {
-        'transaction_id': '{/literal}{$Bestellung->cBestellNr}{literal}',
-        'affiliation': '{/literal}noch machen{literal}',
-        'value': {/literal}{$Bestellung->fWarensumme|replace:",":"."|replace:" &euro;":""}{literal},
-        'tax': {/literal}{$Bestellung->fSteuern|replace:",":"."|replace:" &euro;":""}{literal},
-        'shipping': {/literal}{$Bestellung->fVersandKundenwaehrung|replace:",":"."|replace:" &euro;":""}{literal},
         'currency': '{/literal}EUR{literal}',
-        'coupon': '{/literal}{$currentCouponName.ger}{literal}',
+        'transaction_id': '{/literal}{$Bestellung->cBestellNr}{literal}',
+        'value': {/literal}{$Bestellung->fGesamtsumme|replace:",":"."}{literal},{/literal}
+
+{* START coupon *}
+        {if !isset($currentCouponName)}
+            {literal}
+                'coupon': '{/literal}{$smarty.session.Kupon.cCode}{literal}',
+                'coupon1': '{/literal}{$_REQUEST['Kuponcode']}{literal}',
+            {/literal}
+        {/if}
+{* ENDE coupon *}
+
+    {literal}
+        'shipping': {/literal}{$Bestellung->fVersand|replace:",":"."}{literal},
+        'tax': {/literal}{$Bestellung->fSteuern|replace:",":"."}{literal},
         'items': [
-{/literal}
+    {/literal}
 
     {foreach $Bestellung->Positionen as $Artikel}
 
-        {if !isset ($counter)}
-            {assign var='counter' value='1'}
-        {/if}
+        {if !isset($counter)}{assign var='counter' value='1'}{/if}
 
-    {literal}
-        {
-        'item_id': '{/literal}{$Artikel->cArtNr}{literal}',
-        'item_name': '{/literal}{$Artikel->cName}{literal}',
-        'affiliation': '{/literal}noch machen{literal}',
-        'currency': '{/literal}EUR{literal}',{/literal}
+        {literal}
+            {
+            'item_id': '{/literal}{$Artikel->cArtNr}{literal}',
+            'item_name': '{/literal}{$Artikel->cName}{literal}',{/literal}
 
-        {* START Discount *}
-        {if $Artikel->Preise->Sonderpreis_aktiv == 'true'}
-        {literal}'discount': {/literal}discount{literal},{/literal}
-        {/if}
-        {* ENDE Discount *}
+{* START affiliation *}
+            {if isset($affiliation)}
+                {literal}'affiliation': '{/literal}noch machen{literal}',{/literal}
+            {/if}
+{* ENDE affiliation *}
 
-    {literal}
-        'index': {/literal}{$counter}{assign var='counter' value=$counter + 1}{literal},
-        'price': {/literal}{$Artikel->Preise->fVKBrutto|replace:",":"."|replace:" &euro;":""}{literal},
-        'quantity': {/literal}{$Artikel->fPackeinheit|replace:",":"."}{literal},
-        },
-    {/literal}
+{* START coupon *}
+            {if isset($currentCouponName)}
+                {literal}
+                    'coupon': '{/literal}{$_SESSION->Kupon->cCode}{literal}',
+                    'coupon1': '{/literal}{$_REQUEST['Kuponcode']}{literal}',
+                {/literal}
+            {/if}
+{* ENDE coupon *}
+
+{* START discount *}
+            {if $Artikel->Preise->Sonderpreis_aktiv == 'true'}
+                {literal}'discount': {/literal}discount{literal},{/literal}
+            {/if}
+{* ENDE discount *}
+
+        {literal}
+
+            'index': {/literal}{$counter}{assign var='counter' value=$counter + 1}{literal},
+            'item_brand': {/literal}{$Artikel->cHersteller}{literal},{/literal}
+
+{* START Category Schleife *}
+                {foreach $AktuelleKategorie->cKategoriePfad_arr as $cat}
+                    {if !isset ($counter)}
+                        {assign var='counter' value='1'}
+                    {/if}
+                    {if $counter === '1'}
+                        {literal}'item_category': '{/literal}{$cat}{literal}',{/literal}
+                        {assign var='counter' value=$counter + 1}
+                    {else}
+                        {literal}'item_category{/literal}{$counter}'{literal}: '{/literal}{$cat}{literal}',{/literal}
+                        {assign var='counter' value=$counter + 1}
+                    {/if}
+                {/foreach}
+{* ENDE Category Schleife *}
+
+{* START item_variant *}
+            {if $Artikel->isSimpleVariation == 'true'}
+                {literal}'item_variant': '{/literal}einfacher Artikel{literal}',{/literal}
+            {/if}
+{* ENDE item_variant *}
+
+        {literal}
+            'price': {/literal}{$Artikel->cGesamtpreisLocalized[0]:",":"."|replace:" &euro;":""}{literal},
+            'quantity': {/literal}{$Artikel->nAnzahl|replace:",":"."}{literal},
+            },
+        {/literal}
 
     {/foreach}
 
-{literal}
-    ]
-    },
-    'userData': {
-        'sessionId': '{/literal}{$session_id}{literal}',
-        'timestamp': '{/literal}{$smarty.now}{literal}',
-        'orderValue': '{/literal}{$Bestellung->fWarensumme|replace:",":"."|replace:" &euro;":""}{literal}',
-        'usedCouponCode': '{/literal}Verwendeter Gutscheincode Gutscheincode{literal}',
-        'consumerSalutation': '{/literal}{$Kunde->cAnredeLocalized}{literal}',
-        'consumerFirstName': '{/literal}{$Kunde->cVorname}{literal}',
-        'consumerLastName': '{/literal}{$Kunde->cNachname}{literal}',
-        'consumerEmail': '{/literal}{$Kunde->cMail}{literal}',
-        'consumerCountry': '{/literal}{$Kunde->cLand}{literal}',
-        'consumerZipcode': '{/literal}{$Kunde->cPLZ}{literal}'
-    }
-{/literal}
+        {literal}
+        ]
+            },
+            'userData': {
+                'sessionId': '{/literal}{$Bestellung->cSession}{literal}',
+                'timestamp': '{/literal}{$smarty.now}{literal}',
+                'orderValue': '{/literal}{$Bestellung->fGesamtsumme|replace:",":"."}{literal}',
+                'usedCouponCode': '{/literal}Verwendeter Gutscheincode Gutscheincode{literal}',
+                'consumerSalutation': '{/literal}{$Bestellung->oKunde->cAnredeLocalized}{literal}',
+                'consumerFirstName': '{/literal}{$Bestellung->oKunde->cVorname}{literal}',
+                'consumerLastName': '{/literal}{$Bestellung->oKunde->cNachname}{literal}',
+                'consumerEmail': '{/literal}{$Bestellung->oKunde->cMail}{literal}',
+                'consumerCountry': '{/literal}{$Bestellung->oKunde->cMail}{literal}',
+                'consumerZipcode': '{/literal}{$Bestellung->oKunde->cMail}{literal}'
+            }
+        {/literal}
 {* Purchase - Abschluss Seite ENDE *}

@@ -1,7 +1,7 @@
 {* START WSC DataLayer *}
-  {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerDataLayer->value == 'on'}
+  {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerDataLayer->value === 'on'}
 
-    {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerDataLayerMatomo->value == 'on'}
+    {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerDataLayerMatomo->value === 'on'}
 
       {* ANFANG des Kopfes *}
       {literal}
@@ -23,7 +23,7 @@
 
     {/if}
 
-    {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerDataLayerGoogle->value == 'on'}
+    {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerDataLayerGoogle->value === 'on'}
 
       {* ANFANG des Kopfes *}
       {literal}
@@ -51,9 +51,9 @@
 
 {* Start WSC Matomo *}
 
-  {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomo->value == 'on'}
+  {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomo->value === 'on'}
 
-    {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoTMID->value != 'XxxXXxxX' && $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoTMID->value != '' && $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoTM->value == 'on'}
+    {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoTMID->value !== 'XxxXXxxX' && $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoTMID->value !== '' && $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoTM->value === 'on'}
       <!-- Start Matomo Tag Manager -->
           {literal}<script>
               var _mtm = window._mtm = window._mtm || [];
@@ -64,7 +64,7 @@
       <!-- End Matomo Tag Manager -->
     {/if}
 
-    {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoPageID->value != 'X' && $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoPageID->value != '' && $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoPage->value == 'on'}
+    {if $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoPageID->value !== 'X' && $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoPageID->value !== '' && $WSCTagManagerJTL5_SettingAssoc_arr.wscTagManagerMatomoPage->value === 'on'}
       <!-- Start Matomo Page Code -->
           {literal}<script>
               var _paq = window._paq = window._paq || [];
