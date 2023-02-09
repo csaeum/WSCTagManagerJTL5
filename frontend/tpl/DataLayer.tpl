@@ -2,7 +2,7 @@
 
 {if $nSeitenTyp == '1'}
 
-    {include file="./DataLayer/view_item.tpl.tpl"}
+    {include file="./DataLayer/view_item.tpl"}
 
 {/if}
 {* Produkt View item - Produktdetail Seite ENDE *}
@@ -10,7 +10,7 @@
 {* Produkt View item List - Kategorieseite START *}
 {if $nSeitenTyp == '2'}
 
-    {include file="./DataLayer/view_item_list.tpl.tpl"}
+    {include file="./DataLayer/view_item_list.tpl"}
 
 {/if}
 {* Produkt View item List - Kategorieseite ENDE *}

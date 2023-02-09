@@ -53,8 +53,14 @@
 
         {literal}
 
-            'index': {/literal}{$counter}{assign var='counter' value=$counter + 1}{literal},
-            'item_brand': {/literal}{$Artikel->cHersteller}{literal},{/literal}
+            'index': {/literal}{$counter}{assign var='counter' value=$counter + 1}{literal},{/literal}
+
+{* START item_brand *}
+            {if isset($Artikel->Artikel->cHersteller)}
+                {literal}'item_brand': '{/literal}{$Artikel->Artikel->cHersteller}{literal}',{/literal}
+            {/if}
+{* ENDE item_brand *}
+
 
 {* START Category Schleife *}
                 {foreach $AktuelleKategorie->cKategoriePfad_arr as $cat}
@@ -72,13 +78,16 @@
 {* ENDE Category Schleife *}
 
 {* START item_variant *}
-            {if $Artikel->isSimpleVariation == 'true'}
+            {if $Artikel->Artikel->isSimpleVariation == 'true'}
                 {literal}'item_variant': '{/literal}einfacher Artikel{literal}',{/literal}
             {/if}
 {* ENDE item_variant *}
 
+        {assign var='GesamtpreismitEuro' value=$Artikel->cGesamtpreisLocalized[0] }
+        {assign var='Gesamtpreis' value=$GesamtpreismitEuro|replace:" EUR":"" }
+
         {literal}
-            'price': {/literal}{$Artikel->cGesamtpreisLocalized[0]:",":"."|replace:" &euro;":""}{literal},
+            'price': {/literal}{$Gesamtpreis|replace:",":"."}{literal},
             'quantity': {/literal}{$Artikel->nAnzahl|replace:",":"."}{literal},
             },
         {/literal}
@@ -86,7 +95,7 @@
     {/foreach}
 
         {literal}
-        ]
+        ],
             },
             'userData': {
                 'sessionId': '{/literal}{$Bestellung->cSession}{literal}',
@@ -97,8 +106,8 @@
                 'consumerFirstName': '{/literal}{$Bestellung->oKunde->cVorname}{literal}',
                 'consumerLastName': '{/literal}{$Bestellung->oKunde->cNachname}{literal}',
                 'consumerEmail': '{/literal}{$Bestellung->oKunde->cMail}{literal}',
-                'consumerCountry': '{/literal}{$Bestellung->oKunde->cMail}{literal}',
-                'consumerZipcode': '{/literal}{$Bestellung->oKunde->cMail}{literal}'
+                'consumerCountry': '{/literal}{$Bestellung->oKunde->cLand}{literal}',
+                'consumerZipcode': '{/literal}{$Bestellung->oKunde->cPLZ}{literal}'
             }
         {/literal}
 {* Purchase - Abschluss Seite ENDE *}
