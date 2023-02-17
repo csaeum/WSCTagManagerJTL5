@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="WSCTagManagerJTL5">
+  <component name="PublishConfigData">
     <serverData>
-      <paths name="WSCTagManagerJTL5">
+      <paths name="Mein DEV-Server">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSCTagManagerSW5">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSCTagManagerSW6">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/DEV-JTL5/volumes/html/DEV-JTL5-Projekt/plugins/WSCTagManagerJTL5" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

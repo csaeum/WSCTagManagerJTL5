@@ -1,5 +1,8 @@
 # Default ignored files
 /shelf/
+/deployment.xml
+/sshConfigs.xml
+/webServers.xml
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
