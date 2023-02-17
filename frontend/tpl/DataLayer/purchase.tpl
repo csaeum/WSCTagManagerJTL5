@@ -10,7 +10,7 @@
             {assign var='couponWSCWert' value=$couponWSCWertmitKomma|replace:",":"."}
             {assign var='grandTotalWSCWert' value={math equation="x + y" x=$Bestellung->fGesamtsumme y=$couponWSCWert}}
         {/if}
-{* START nPosTyp 3 = Coupon *}
+{* ENDE nPosTyp 3 = Coupon *}
     {/foreach}
 
     {literal}
@@ -50,54 +50,55 @@
         'items': [
     {/literal}
 
-    {foreach $Bestellung->Positionen as $Artikel}
+{foreach $WSCCart->PositionenArr as $Artikel}
 
-        {if !isset($counter)}{assign var='counter' value='1'}{/if}
+    {if !isset($counter)}{assign var='counter' value='1'}{/if}
 
-        {literal}
-            {
-        {/literal}
+{literal}
+    {
+{/literal}
 
-{* START item_id *}
-            {if $Artikel->cArtNr !== ''}
-                {literal}'item_id': '{/literal}{$Artikel->cArtNr}{literal}',{/literal}
-            {/if}
-{* ENDE item_id *}
+    {* START item_id *}
+    {if $Artikel->cArtNr !== ''}
+    {literal}'item_id': '{/literal}{$Artikel->cArtNr}{literal}',{/literal}
+    {/if}
+    {* ENDE item_id *}
 
-                {literal}'item_name': '{/literal}{$Artikel->cName}{literal}',{/literal}
+{literal}'item_name': '{/literal}{$Artikel->cName}{literal}',{/literal}
 
-{* START discount *}
-            {if $Artikel->Preise->Sonderpreis_aktiv == 'true'}
-                {literal}'discount': {/literal}discount{literal},{/literal}
-            {/if}
-{* ENDE discount *}
+    {* START discount *}
+    {if $Artikel->Artikel->Preise->Sonderpreis_aktiv == '1'}
+    {literal}'discount': {/literal}{math equation="(x - y) * z" x=$Artikel->Artikel->Preise->alterVK[0] y=$Artikel->Artikel->Preise->fVK[0] z=$Artikel->nAnzahl}{literal},{/literal}
+    {/if}
+    {* ENDE discount *}
 
-        {literal}
+{literal}
 
-            'index': {/literal}{$counter}{assign var='counter' value=$counter + 1}{literal},{/literal}
+    'index': {/literal}{$counter}{assign var='counter' value=$counter + 1}{literal},{/literal}
 
-{* START item_brand *}
-            {if isset($Artikel->Artikel->cHersteller)}
-                {literal}'item_brand': '{/literal}{$Artikel->Artikel->cHersteller}{literal}',{/literal}
-            {/if}
-{* ENDE item_brand *}
+    {* START item_brand *}
+    {if isset($Artikel->Artikel->cHersteller)}
+    {literal}'item_brand': '{/literal}{$Artikel->Artikel->cHersteller}{literal}',{/literal}
+    {/if}
+    {* ENDE item_brand *}
 
-{* START item_variant *}
-            {if $Artikel->Artikel->isSimpleVariation == 'true'}
-                {literal}'item_variant': '{/literal}einfacher Artikel{literal}',{/literal}
-            {/if}
-{* ENDE item_variant *}
+    {* START item_variant *}
+    {if $Artikel->Artikel->isSimpleVariation == 'true'}
+    {literal}'item_variant': '{/literal}{foreach $Artikel->WarenkorbPosEigenschaftArr as $WarenkorbPosEigenschaft}{$WarenkorbPosEigenschaft->cEigenschaftName} = {$WarenkorbPosEigenschaft->cEigenschaftWertName} | {/foreach}{literal}',{/literal}
+    {/if}
+    {* ENDE item_variant *}
 
-        {assign var='GesamtpreismitEuro' value=$Artikel->cGesamtpreisLocalized[0]}
-        {assign var='Gesamtpreis' value=$GesamtpreismitEuro|replace:" EUR":""}
+    {assign var='GesamtpreismitEuro' value=$Artikel->cGesamtpreisLocalized[0].EUR}
+    {assign var='GesamtpreisPunkte' value=$GesamtpreismitEuro|replace:" &euro;":""}
+    {assign var='Gesamtpreis' value=$GesamtpreisPunkte|replace:".":""}
 
-        {literal}
-            'price': {/literal}{$Gesamtpreis|replace:",":"."}{literal},
-            'quantity': {/literal}{$Artikel->nAnzahl|replace:",":"."}{literal},
-            },
-        {/literal}
+{literal}
+    'price': {/literal}{$Gesamtpreis|replace:",":"."}{literal},
+    'quantity': {/literal}{$Artikel->nAnzahl|replace:",":"."}{literal},
+    },
+{/literal}
 
-    {/foreach}
+{/foreach}
 
         {literal}
         ],
