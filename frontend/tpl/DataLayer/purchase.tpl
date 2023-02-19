@@ -1,54 +1,47 @@
 {* Purchase - Abschluss Seite START *}
+{foreach $Bestellung->Positionen as $vorArtikel}
 
-    {foreach $Bestellung->Positionen as $vorArtikel}
-{* START nPosTyp 3 = Coupon *}
-{* nPosTyp auf https://forum.jtl-software.de/threads/hilfe-bei-wf-benoetigt-postitionstyp-coupon.196669/#post-1050265 *}
-        {if $vorArtikel->nPosTyp == '3'}
-            {assign var='couponWSCname' value={$vorArtikel->cName}}
-            {assign var='couponWSCWertmitEuro' value={$vorArtikel->cGesamtpreisLocalized[0]}}
-            {assign var='couponWSCWertmitKomma' value=$couponWSCWertmitEuro|replace:" EUR":""}
-            {assign var='couponWSCWert' value=$couponWSCWertmitKomma|replace:",":"."}
-            {assign var='grandTotalWSCWert' value={math equation="x + y" x=$Bestellung->fGesamtsumme y=$couponWSCWert}}
-        {/if}
-{* ENDE nPosTyp 3 = Coupon *}
-    {/foreach}
+    {* START nPosTyp 3 = Coupon *}
+    {* nPosTyp auf https://forum.jtl-software.de/threads/hilfe-bei-wf-benoetigt-postitionstyp-coupon.196669/#post-1050265 *}
+    {if $vorArtikel->nPosTyp == '3'}
+        {assign var='couponWSCname' value={$vorArtikel->cName}}
+        {assign var='couponWSCWertmitEuro' value={$vorArtikel->cGesamtpreisLocalized[0]}}
+        {assign var='couponWSCWertmitKomma' value=$couponWSCWertmitEuro|replace:" EUR":""}
+        {assign var='couponWSCWert' value=$couponWSCWertmitKomma|replace:",":"."}
+    {/if}
+    {* ENDE nPosTyp 3 = Coupon *}
 
-    {literal}
+{/foreach}
+
+{literal}
     'event': 'purchase',
     'ecommerce': {
-        'currency': '{/literal}{$smarty.session.cWaehrungName}{literal}',
-        'transaction_id': '{/literal}{$Bestellung->cBestellNr}{literal}',
-        'value': {/literal}{$Bestellung->fGesamtsumme|replace:",":"."}{literal},{/literal}
+    'currency': '{/literal}{$smarty.session.cWaehrungName}{literal}',
+    'transaction_id': '{/literal}{$Bestellung->cBestellNr}{literal}',
+    'value': {/literal}{$Bestellung->fGesamtsumme|replace:",":"."}{literal},{/literal}
 
 {* START coupon *}
-        {if $couponWSCname != ''}
-            {literal}'coupon': '{/literal}{$couponWSCname}{literal}',{/literal}
-        {/if}
+{if $couponWSCname != ''}
+{literal}'coupon': '{/literal}{$couponWSCname}{literal}',{/literal}
+{/if}
 {* ENDE coupon *}
 
-    {literal}
-        'shipping': {/literal}{$Bestellung->fVersand|replace:",":"."}{literal},
-        'tax': {/literal}{$Bestellung->fSteuern|replace:",":"."}{literal},{/literal}
-
-{* Der Gesamtumsatz der Bestellung, einschließlich Steuern und Versand, abzüglich etwaiger Rabatte. *}
-        {if $grandTotalWSCWert != ''}
-            {literal}'grandTotal': {/literal}{$grandTotalWSCWert}{literal},{/literal}
-        {else}
-            {literal}'grandTotal': {/literal}{$Bestellung->fGesamtsumme|replace:",":"."}{literal},{/literal}
-        {/if}
+{literal}
+    'shipping': {/literal}{$Bestellung->fVersand|replace:",":"."}{literal},
+    'tax': {/literal}{$Bestellung->fSteuern|replace:",":"."}{literal},{/literal}
 
 {* Die Gesamtsumme der Bestellung ohne Versandkosten *}
-        {literal}'subTotal': {/literal}{$Bestellung->fWarensumme|replace:",":"."}{literal},{/literal}
+{literal}'subTotal': {/literal}{$Bestellung->fWarensumme|replace:",":"."}{literal},{/literal}
 
 {* START discount *}
 {* Rabatt angeboten? Standardmäßig falsch. Andernfalls sollten Sie einen numerischen Wert angeben. *}
-        {if $Artikel->Preise->Sonderpreis_aktiv == 'true'}
-            {literal}'discount': {/literal}discount{literal},{/literal}
-        {/if}
+{if $Artikel->Preise->Sonderpreis_aktiv == 'true'}
+{literal}'discount': {/literal}discount{literal},{/literal}
+{/if}
 {* ENDE discount *}
-    {literal}
-        'items': [
-    {/literal}
+{literal}
+    'items': [
+{/literal}
 
 {foreach $WSCCart->PositionenArr as $Artikel}
 
@@ -100,20 +93,20 @@
 
 {/foreach}
 
-        {literal}
-        ],
-            },
-            'userData': {
-                'sessionId': '{/literal}{$Bestellung->cSession}{literal}',
-                'timestamp': '{/literal}{$smarty.now}{literal}',
-                'orderValue': '{/literal}{$Bestellung->fWarensummeNetto|replace:",":"."}{literal}',
-                'usedCouponCode': '{/literal}Verwendeter Gutscheincode Gutscheincode{literal}',
-                'consumerSalutation': '{/literal}{$Bestellung->oKunde->cAnredeLocalized}{literal}',
-                'consumerFirstName': '{/literal}{$Bestellung->oKunde->cVorname}{literal}',
-                'consumerLastName': '{/literal}{$Bestellung->oKunde->cNachname}{literal}',
-                'consumerEmail': '{/literal}{$Bestellung->oKunde->cMail}{literal}',
-                'consumerCountry': '{/literal}{$Bestellung->oKunde->cLand}{literal}',
-                'consumerZipcode': '{/literal}{$Bestellung->oKunde->cPLZ}{literal}'
-            }
-        {/literal}
+{literal}
+    ],
+    },
+    'userData': {
+    'sessionId': '{/literal}{$Bestellung->cSession}{literal}',
+    'timestamp': '{/literal}{$smarty.now}{literal}',
+    'orderValue': '{/literal}{$Bestellung->fWarensummeNetto|replace:",":"."}{literal}',
+    'usedCouponCode': '{/literal}Verwendeter Gutscheincode Gutscheincode{literal}',
+    'consumerSalutation': '{/literal}{$Bestellung->oKunde->cAnredeLocalized}{literal}',
+    'consumerFirstName': '{/literal}{$Bestellung->oKunde->cVorname}{literal}',
+    'consumerLastName': '{/literal}{$Bestellung->oKunde->cNachname}{literal}',
+    'consumerEmail': '{/literal}{$Bestellung->oKunde->cMail}{literal}',
+    'consumerCountry': '{/literal}{$Bestellung->oKunde->cLand}{literal}',
+    'consumerZipcode': '{/literal}{$Bestellung->oKunde->cPLZ}{literal}'
+    }
+{/literal}
 {* Purchase - Abschluss Seite ENDE *}
